@@ -20,6 +20,8 @@ with st.sidebar:
 with st.expander('Analizar Polaridad y Subjetividad en un texto'):
     text1 = st.text_area('Escribe por favor: ')
     if text1:
+        st.write('Texto ingresado: ', text1)  # Mostrar el texto ingresado
+
         blob = TextBlob(text1)
         polarity = round(blob.sentiment.polarity, 2)
         subjectivity = round(blob.sentiment.subjectivity, 2)
@@ -28,13 +30,13 @@ with st.expander('Analizar Polaridad y Subjetividad en un texto'):
         st.write('Subjetividad: ', subjectivity)
         
         if polarity >= 0.5:
-            image = Image.open('Positivo.png')  # Asegúrate de tener la imagen "Positivo.png"
+            image = Image.open('Positivo.png')  
             st.image(image, caption='Sentimiento Positivo 😊')
         elif polarity <= -0.5:
-            image = Image.open('Negativo.png')  # Asegúrate de tener la imagen "Negativo.png"
+            image = Image.open('Negativo.png')  
             st.image(image, caption='Sentimiento Negativo 😔')
         else:
-            image = Image.open('Neutral.png')  # Asegúrate de tener la imagen "Neutral.png"
+            image = Image.open('Neutral.png')  
             st.image(image, caption='Sentimiento Neutral 😐')
 
 with st.expander('Corrección en inglés'):
