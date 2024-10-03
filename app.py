@@ -32,13 +32,13 @@ with st.expander('Analizar Polaridad y Subjetividad en un texto'):
 
         # Mostrar imagen según la polaridad
         if polarity >= 0.5:
-            image_path = 'Positivo.jpg'
+            image_path = 'Positivo.png'
             caption = 'Sentimiento Positivo 😊'
         elif polarity <= -0.5:
-            image_path = 'Negativo.jpg'
+            image_path = 'Negativo.png'
             caption = 'Sentimiento Negativo 😔'
         else:
-            image_path = 'Neutral.jpg'
+            image_path = 'Neutral.png'
             caption = 'Sentimiento Neutral 😐'
 
         if os.path.exists(image_path):
