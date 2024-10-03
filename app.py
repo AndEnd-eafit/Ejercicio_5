@@ -49,13 +49,13 @@ with st.expander('Analizar Polaridad y Subjetividad en un texto'):
 
         # Cargar imágenes
         if x >= 0.5:
-            image = Image.open('Positivo.jpg')  # Asegúrate de tener la imagen "Positivo.jpg"
+            image = Image.open('Positivo.png')  # Asegúrate de tener la imagen "Positivo.jpg"
             st.image(image, caption='Sentimiento Positivo 😊')
         elif x <= -0.5:
-            image = Image.open('Negativo.jpg')  # Asegúrate de tener la imagen "Negativo.jpg"
+            image = Image.open('Negativo.png')  # Asegúrate de tener la imagen "Negativo.jpg"
             st.image(image, caption='Sentimiento Negativo 😔')
         else:
-            image = Image.open('Neutral.jpg')  # Asegúrate de tener la imagen "Neutral.jpg"
+            image = Image.open('Neutral.png')  # Asegúrate de tener la imagen "Neutral.jpg"
             st.image(image, caption='Sentimiento Neutral 😐')
 
 with st.expander('Corrección en inglés'):
