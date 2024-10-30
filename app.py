@@ -1,10 +1,7 @@
 import streamlit as st
 from textblob import TextBlob
-from googletrans import Translator
 from PIL import Image
 
-# Inicializar el traductor
-translator = Translator()
 st.title('Uso de TextBlob para Análisis de Sentimiento')
 
 st.subheader("Por favor escribe en el campo de texto la frase que deseas analizar")
@@ -24,13 +21,8 @@ with st.expander('Analizar Polaridad y Subjetividad en un texto'):
     text1 = st.text_area('Escribe por favor: ')
     
     if text1:
-        # Traducir el texto al inglés si es necesario
-        translation = translator.translate(text1, src="es", dest="en")
-        translated_text = translation.text
-        st.write(f"Texto traducido: {translated_text}")
-
-        # Crear el objeto TextBlob con el texto traducido
-        blob = TextBlob(translated_text)
+        # Crear el objeto TextBlob directamente con el texto en español
+        blob = TextBlob(text1)
 
         # Obtener polaridad y subjetividad
         polarity = round(blob.sentiment.polarity, 2)
@@ -47,6 +39,12 @@ with st.expander('Analizar Polaridad y Subjetividad en un texto'):
             st.image('Negativo.png', caption='Sentimiento Negativo 😔', use_column_width=True)
         else:
             st.image('Neutral.png', caption='Sentimiento Neutral 😐', use_column_width=True)
+
+        # También podrías usar la subjetividad para mostrar más información si lo prefieres
+        if subjectivity >= 0.5:
+            st.write("El texto es bastante subjetivo.")
+        else:
+            st.write("El texto es más objetivo.")
 
 # Corrección en inglés
 with st.expander('Corrección en inglés'):
